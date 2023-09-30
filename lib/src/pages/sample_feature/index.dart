@@ -1,3 +1,4 @@
+import 'package:flutt_folio/src/pages/auth/login.dart';
 import 'package:flutter/material.dart';
 
 /// Displays a list of SampleItems.
@@ -15,8 +16,10 @@ class IndexView extends StatelessWidget {
         body: Center(
             child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/auth/login');
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return const LoginView();
+                  }));
                 },
-                child: Text('Auth'))));
+                child: Text('Test'))));
   }
 }

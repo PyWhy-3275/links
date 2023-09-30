@@ -1,0 +1,6 @@
+{
+  "appTitle": "flutt_folio",
+  "@appTitle": {
+    "description": "The title of the application"
+  }
+}

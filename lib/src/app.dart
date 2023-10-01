@@ -1,9 +1,8 @@
-import 'package:flutt_folio/src/pages/auth/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-import 'pages/sample_feature/index.dart';
+import 'pages/index.dart';
 
 /// The Widget that configures your application.
 class MyApp extends StatelessWidget {
@@ -48,8 +47,6 @@ class MyApp extends StatelessWidget {
           settings: routeSettings,
           builder: (BuildContext context) {
             switch (routeSettings.name) {
-              case LoginView.routeName:
-                return const LoginView();
               case IndexView.routeName:
                 return const IndexView();
               default:

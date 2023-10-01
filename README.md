@@ -1,31 +1,7 @@
-# flutt_folio
+# FluttFolio
 
-A new Flutter project.
+**FluttFolio** is a easy to configure portfolio website built with Flutter, that you can netlify host on GitHub Pages, and configure with your own data.
 
-## Getting Started
+The project is still really early in development, but im working on it :)
 
-This project is a starting point for a Flutter application that follows the
-[simple app state management
-tutorial](https://flutter.dev/docs/development/data-and-backend/state-mgmt/simple).
-
-For help getting started with Flutter development, view the
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-
-## Assets
-
-The `assets` directory houses images, fonts, and any other files you want to
-include with your application.
-
-The `assets/images` directory contains [resolution-aware
-images](https://flutter.dev/docs/development/ui/assets-and-images#resolution-aware).
-
-## Localization
-
-This project generates localized messages based on arb files found in
-the `lib/src/localization` directory.
-
-To support additional languages, please visit the tutorial on
-[Internationalizing Flutter
-apps](https://flutter.dev/docs/development/accessibility-and-localization/internationalization)
-testing
+once the project is more stable, i will add a more detailed guide on how to configure the website with your own data and stuff.

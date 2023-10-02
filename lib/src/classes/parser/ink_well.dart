@@ -12,8 +12,10 @@ class InkWellParser extends WidgetParser {
   @override
   Map<String, dynamic>? export(Widget? widget, BuildContext? buildContext) {
     var realWidget = widget as InkWell;
+
     var map = <String, dynamic>{
       "type": widgetName,
+      "borderRadius": realWidget.borderRadius.toString(),
       "child": DynamicWidgetBuilder.export(realWidget.child, buildContext)
     };
     return map;
@@ -25,7 +27,11 @@ class InkWellParser extends WidgetParser {
     String clickEvent =
         map.containsKey("click_event") ? map['click_event'] : "";
 
+    BorderRadius borderRadius =
+        map.containsKey("click_event") ? map['click_event'] : "";
+
     var inkWell = InkWell(
+      borderRadius: borderRadius,
       child: DynamicWidgetBuilder.buildFromMap(
           map['child'], buildContext, listener),
       onTap: () {

@@ -63,22 +63,26 @@ class JSONExporterState extends State<JSONExporter> {
             children: [
               Expanded(
                 child: DynamicWidgetJsonExportor(
-                  key: key,
-                  // everything from this point will be exported as json
-                  //
-                  //
-                  //
-                  //
-                  //
-                  child: Container(
-                    child: null,
-                  ),
-                  //
-                  //
-                  //
-                  //
-                  //
-                ),
+                    key: key,
+                    // everything from this point will be exported as json
+                    //
+                    //
+                    //
+                    //
+                    //
+                    child: Column(
+                      children: [
+                        Text("Testing out even more stuff:"),
+                        ElevatedButton(
+                            onPressed: () {}, child: Text("OI MATE IT WORKED")),
+                      ],
+                    )
+                    //
+                    //
+                    //
+                    //
+                    //
+                    ),
               ),
             ],
           ),

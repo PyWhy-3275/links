@@ -55,9 +55,7 @@ class IndexView extends StatelessWidget {
                   return Text(snapshot.error.toString());
                 }
                 return snapshot.hasData
-                    ? SizedBox.expand(
-                        child: snapshot.data,
-                      )
+                    ? snapshot.data!
                     : const Text("Loading...");
               },
             ),

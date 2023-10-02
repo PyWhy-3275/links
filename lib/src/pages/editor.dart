@@ -8,6 +8,7 @@
 
 import 'package:dynamic_widget/dynamic_widget.dart';
 import 'package:flutt_folio/src/classes/click_listener.dart';
+import 'package:flutt_folio/src/helper/editor.dart';
 import 'package:flutt_folio/src/widgets/selector/add_btn.dart';
 import 'package:flutter/material.dart';
 
@@ -21,41 +22,32 @@ class EditorView extends StatelessWidget {
     // we gonna return a scaffold with the editor view if it is in debug mode
     // else we gonna show the view for the portfolio
 
-    Future<Widget>? buildIndex() async {
+    Future<Widget>? buildEditor() async {
       try {
         String layoutString = await DefaultAssetBundle.of(context)
             .loadString("assets/layout.json");
 
-        //TODO: Manupulate the layout json to show the WidgetSelector for every child object thats null
-        // in the json file, also add a stack around each object so the user can change the color of the
-        // background of the widget, and add a button to delete the widget.
+        String editorLayout =
+            await fillNullChildWithWidgetSelector(layoutString);
 
         return DynamicWidgetBuilder.build(
-            layoutString, context, DefaultClickListener())!;
+            editorLayout, context, DefaultClickListener())!;
       } catch (e) {
-        return const WidgetSelector();
+        return const Center(
+          child: WidgetSelector(),
+        );
       }
     }
 
     return Scaffold(
       body: Center(
         child: FutureBuilder<Widget>(
-          future: buildIndex(),
+          future: buildEditor(),
           builder: (BuildContext context, AsyncSnapshot<Widget> snapshot) {
             if (snapshot.hasError) {
               return Text(snapshot.error.toString());
             }
-            return snapshot.hasData
-                ? SizedBox.expand(
-                    child: SingleChildScrollView(
-                      child: Column(
-                        children: [
-                          snapshot.data!,
-                        ],
-                      ),
-                    ),
-                  )
-                : const Text("Loading...");
+            return snapshot.hasData ? snapshot.data! : const Text("Loading...");
           },
         ),
       ),

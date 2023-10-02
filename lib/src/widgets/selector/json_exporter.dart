@@ -24,14 +24,15 @@ class JSONExporterState extends State<JSONExporter> {
     var dir = Directory.current;
     var file =
         File("${dir.path}/lib/src/widgets/selector/selectable_widgets.dart");
-    String formattedJson = formatJson(jsonDecode(json));
 
     if (await file.exists()) {
       // If the file already exists, append the formatted JSON to the bottom.
+      String formattedJson = formatJson(jsonDecode(json));
       await file.writeAsString("\nvar $varName = '''\n$formattedJson\n''';",
           mode: FileMode.append);
     } else {
       // If the file doesn't exist, create it and write the formatted JSON.
+      String formattedJson = formatJson(jsonDecode(json));
       await file.create();
       await file.writeAsString("var $varName = '''\n$formattedJson\n''';");
     }
@@ -48,7 +49,6 @@ class JSONExporterState extends State<JSONExporter> {
 
           ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
               content: Text("json string was exported to editor page.")));
-
           await writeJsonToFile(exportJsonString, "containerWidget");
         },
         child: const Icon(Icons.save),
@@ -63,21 +63,26 @@ class JSONExporterState extends State<JSONExporter> {
             children: [
               Expanded(
                 child: DynamicWidgetJsonExportor(
-                    key: key,
-                    // everything from this point will be exported as json
-                    child: const Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Hi, I think i have a solid plan to make this work:)",
-                          style: TextStyle(color: Colors.white),
+                  key: key,
+                  // everything from this point will be exported as json
+                  child: InkWell(
+                    onTap: () {},
+                    child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(
+                            color: Colors.grey,
+                            width: 5,
+                          ),
                         ),
-                        Text(
-                          "But that will need to wait until tomorrow",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ],
-                    )),
+                        child: const Center(
+                          child: Icon(
+                            Icons.add,
+                            size: 100,
+                          ),
+                        )),
+                  ),
+                ),
               ),
             ],
           ),

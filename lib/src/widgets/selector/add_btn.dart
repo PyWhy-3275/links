@@ -25,8 +25,8 @@ class WidgetSelector extends StatelessWidget {
                   ));
         },
         child: Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
+            width: 200,
+            height: 200,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               border: Border.all(

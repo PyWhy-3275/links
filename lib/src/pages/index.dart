@@ -1,14 +1,8 @@
 import 'package:dynamic_widget/dynamic_widget.dart';
+import 'package:flutt_folio/src/classes/click_listener.dart';
 import 'package:flutt_folio/src/pages/editor.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
-class DefaultClickListener implements ClickListener {
-  @override
-  void onClicked(String? event) {
-    // here click events are handled
-  }
-}
 
 /// Displays a list of SampleItems.
 class IndexView extends StatelessWidget {

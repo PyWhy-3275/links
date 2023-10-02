@@ -65,23 +65,19 @@ class JSONExporterState extends State<JSONExporter> {
                 child: DynamicWidgetJsonExportor(
                   key: key,
                   // everything from this point will be exported as json
-                  child: InkWell(
-                    onTap: () {},
-                    child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(
-                            color: Colors.grey,
-                            width: 5,
-                          ),
-                        ),
-                        child: const Center(
-                          child: Icon(
-                            Icons.add,
-                            size: 100,
-                          ),
-                        )),
+                  //
+                  //
+                  //
+                  //
+                  //
+                  child: Container(
+                    child: null,
                   ),
+                  //
+                  //
+                  //
+                  //
+                  //
                 ),
               ),
             ],

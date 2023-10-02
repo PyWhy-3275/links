@@ -1,5 +1,5 @@
 import 'package:dynamic_widget/dynamic_widget.dart';
-import 'package:flutt_folio/src/classes/ink_well.dart';
+import 'package:flutt_folio/src/classes/parser/ink_well.dart';
 import 'package:flutter/material.dart';
 
 import 'src/app.dart';

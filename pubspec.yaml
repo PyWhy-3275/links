@@ -10,11 +10,14 @@ environment:
   sdk: '>=3.1.2 <4.0.0'
 
 dependencies:
+  dynamic_widget:
+    git: https://github.com/dengyin2000/dynamic_widget
   flutter:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  github: ^9.19.0
+  modal_bottom_sheet: ^3.0.0-pre
+  path_provider: ^2.1.1
 
 dev_dependencies:
   flutter_test:
@@ -31,3 +34,4 @@ flutter:
   assets:
     # Add assets from the images directory to the application.
     - assets/images/
+    - assets/layout.json

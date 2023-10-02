@@ -6,7 +6,7 @@
 ///
 /// the user will also be able to create custom widgets that can be used later.
 
-import 'package:flutt_folio/src/widgets/widget_selector.dart';
+import 'package:flutt_folio/src/widgets/selector/add_btn.dart';
 import 'package:flutter/material.dart';
 
 class EditorView extends StatelessWidget {
@@ -18,6 +18,9 @@ class EditorView extends StatelessWidget {
   Widget build(BuildContext context) {
     // we gonna return a scaffold with the editor view if it is in debug mode
     // else we gonna show the view for the portfolio
+
+    // TODO: Load the layout.json file from the assets folder, and display the widget selector
+    // on empty places in the layout.
     return const Scaffold(
       body: Center(
         child: WidgetSelector(),

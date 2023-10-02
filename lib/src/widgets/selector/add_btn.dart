@@ -1,4 +1,6 @@
+import 'package:flutt_folio/src/widgets/selector/sheet_view.dart';
 import 'package:flutter/material.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 /// The widget selector is a widget that will be used to select widgets to place
 /// in the portfolio page.
@@ -7,18 +9,24 @@ import 'package:flutter/material.dart';
 /// mode.
 
 class WidgetSelector extends StatelessWidget {
-  const WidgetSelector({
-    Key? key,
-  }) : super(key: key);
+  const WidgetSelector({super.key});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
         borderRadius: BorderRadius.circular(10),
-        onTap: () {},
+        onTap: () {
+          showCupertinoModalBottomSheet(
+              enableDrag: false,
+              isDismissible: false,
+              context: context,
+              builder: (context) => const Material(
+                    child: WidgetSheetView(),
+                  ));
+        },
         child: Container(
-            width: 300,
-            height: 300,
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               border: Border.all(

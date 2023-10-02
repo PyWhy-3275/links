@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       restorationScopeId: 'app',
       // Provide the generated AppLocalizations to the MaterialApp. This
       // allows descendant Widgets to display the correct translations

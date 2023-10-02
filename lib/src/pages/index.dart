@@ -16,12 +16,20 @@ class IndexView extends StatelessWidget {
   Widget build(BuildContext context) {
     // here all the logic for the view
 
-    Future<Widget> buildIndex() async {
-      String layoutString =
-          await DefaultAssetBundle.of(context).loadString("assets/layout.json");
-      // ignore: use_build_context_synchronously
-      return DynamicWidgetBuilder.build(
-          layoutString, context, DefaultClickListener())!;
+    Future<Widget>? buildIndex() async {
+      try {
+        String layoutString = await DefaultAssetBundle.of(context)
+            .loadString("assets/layout.json");
+
+        return DynamicWidgetBuilder.build(
+            layoutString, context, DefaultClickListener())!;
+      } catch (e) {
+        //TODO: Create a No Layout Found Widget
+        return const Center(
+          child: Text(
+              "No Layout Found\nPlease create a layout first by running the app on a native machine [Windows, Linux, MacOS] in debug mode"),
+        );
+      }
     }
 
     return Scaffold(

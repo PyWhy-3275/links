@@ -15,7 +15,6 @@ class IndexView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // here all the logic for the view
-
     Future<Widget>? buildIndex() async {
       try {
         String layoutString = await DefaultAssetBundle.of(context)

@@ -9,7 +9,6 @@
 import 'package:dynamic_widget/dynamic_widget.dart';
 import 'package:flutt_folio/src/classes/click_listener.dart';
 import 'package:flutt_folio/src/helper/editor.dart';
-import 'package:flutt_folio/src/widgets/selector/add_btn.dart';
 import 'package:flutter/material.dart';
 
 class EditorView extends StatelessWidget {
@@ -33,8 +32,12 @@ class EditorView extends StatelessWidget {
         return DynamicWidgetBuilder.build(
             editorLayout, context, DefaultClickListener())!;
       } catch (e) {
-        return const Center(
-          child: WidgetSelector(),
+        return Center(
+          child: ElevatedButton(
+              onPressed: () {
+                widgetSelectorPush();
+              },
+              child: const Icon(Icons.add)),
         );
       }
     }

@@ -9,7 +9,7 @@
   "children": [
     {
       "type": "Text",
-      "data": "Testing out even more stuff:",
+      "data": "Hi, Im a Column",
       "textAlign": "start",
       "overflow": null,
       "maxLines": null,
@@ -20,26 +20,13 @@
       "textScaleFactor": null
     },
     {
-      "type": "ElevatedButton",
-      "foregroundColor": null,
-      "backgroundColor": null,
-      "overlayColor": null,
-      "shadowColor": null,
-      "elevation": null,
+      "type": "Container",
+      "alignment": null,
       "padding": null,
-      "textStyle": null,
-      "child": {
-        "type": "Text",
-        "data": "OI MATE IT WORKED",
-        "textAlign": "start",
-        "overflow": null,
-        "maxLines": null,
-        "semanticsLabel": null,
-        "softWrap": null,
-        "textDirection": "ltr",
-        "style": null,
-        "textScaleFactor": null
-      }
+      "color": null,
+      "margin": null,
+      "constraints": null,
+      "child": null
     }
   ]
 }

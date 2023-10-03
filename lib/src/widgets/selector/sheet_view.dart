@@ -6,37 +6,38 @@ class WidgetSheetView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-        padding: const EdgeInsets.all(5),
-        child: Column(
-          children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
+    return Material(
+        child: Padding(
+            padding: const EdgeInsets.all(5),
+            child: Column(
               children: [
-                Text(("Widget Selector"),
-                    style: Theme.of(context).textTheme.titleLarge),
-                const Spacer(),
-                IconButton(
-                    splashRadius: 20,
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                    icon: const Icon(Icons.close))
-              ],
-            ),
-            const Divider(),
-            //TODO: Showcase some widgets here,
-            // I will need to create some widgets first tough, wont take long tough ^^
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(("Widget Selector"),
+                        style: Theme.of(context).textTheme.titleLarge),
+                    const Spacer(),
+                    IconButton(
+                        splashRadius: 20,
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        icon: const Icon(Icons.close))
+                  ],
+                ),
+                const Divider(),
+                //TODO: Showcase some widgets here,
+                // I will need to create some widgets first tough, wont take long tough ^^
 
-            const Spacer(),
-            const Divider(),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const JSONExporter()));
-                },
-                child: const Text("Json Exporter"))
-          ],
-        ));
+                const Spacer(),
+                const Divider(),
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const JSONExporter()));
+                    },
+                    child: const Text("Json Exporter"))
+              ],
+            )));
   }
 }

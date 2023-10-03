@@ -42,26 +42,21 @@ class JSONExporterState extends State<JSONExporter> {
           width: double.infinity,
           child: Column(
             children: [
-              Expanded(
-                child: DynamicWidgetJsonExportor(
-                  key: key,
-                  // everything from this point will be exported as json
-                  //
-                  //
-                  //
-                  //
-                  //
-                  child: Column(children: [
-                    const Text("Hi, Im a Column"),
-                    Container(child: null)
-                  ]),
-
-                  //
-                  //
-                  //
-                  //
-                  //
-                ),
+              DynamicWidgetJsonExportor(
+                key: key,
+                // everything from this point will be exported as json
+                //
+                //
+                //
+                //
+                //
+                child: // create DropCapText
+                    Text("Hello there"),
+                //
+                //
+                //
+                //
+                //
               ),
             ],
           ),

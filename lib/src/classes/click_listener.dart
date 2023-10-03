@@ -1,6 +1,6 @@
 import 'package:dynamic_widget/dynamic_widget.dart';
 import 'package:flutt_folio/src/app.dart';
-import 'package:flutt_folio/src/widgets/selector/sheet_view.dart';
+import 'package:flutt_folio/src/widgets/selector/selectable_widgets_view.dart';
 import 'package:flutter/material.dart';
 
 class DefaultClickListener implements ClickListener {
@@ -14,6 +14,6 @@ class DefaultClickListener implements ClickListener {
 
 widgetSelectorPush() {
   // the url is the url of the widget selector
-  navigatorKey.currentState
-      ?.push(MaterialPageRoute(builder: (context) => const WidgetSheetView()));
+  navigatorKey.currentState?.push(
+      MaterialPageRoute(builder: (context) => const SelectableWidgetsView()));
 }

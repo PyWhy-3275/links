@@ -32,7 +32,6 @@ Future<String> addWidgetToAllChildren(String jsonString) async {
   void traverse(dynamic node) {
     if (node is Map<String, dynamic>) {
       if (node.containsKey("children") && node["children"] is List) {
-        print("Added widget selector to children");
         node["children"].add(json.decode(widgetSelectorJson));
       }
       for (var key in node.keys) {
@@ -55,7 +54,6 @@ Future<String> addWidgetToAllNullChild(String jsonString) async {
   void traverse(dynamic node) {
     if (node is Map<String, dynamic>) {
       if (node.containsKey("child") && node["child"] == null) {
-        print("Added widget selector to null child");
         node["child"] = json.decode(widgetSelectorJson);
       }
       for (var key in node.keys) {

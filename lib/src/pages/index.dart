@@ -1,8 +1,8 @@
 import 'package:dynamic_widget/dynamic_widget.dart';
 import 'package:flutt_folio/src/classes/click_listener.dart';
-import 'package:flutt_folio/src/pages/editor.dart';
-import 'package:flutter/foundation.dart';
+import 'package:flutt_folio/src/classes/flutt_folio.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 /// Displays a list of SampleItems.
 class IndexView extends StatelessWidget {
@@ -14,7 +14,8 @@ class IndexView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // here all the logic for the view
+    final fluttFolio = Provider.of<FluttFolio>(context);
+
     Future<Widget>? buildIndex() async {
       try {
         String layoutString = await DefaultAssetBundle.of(context)
@@ -23,17 +24,30 @@ class IndexView extends StatelessWidget {
         return DynamicWidgetBuilder.build(
             layoutString, context, DefaultClickListener())!;
       } catch (e) {
-        //TODO: Create a No Layout Found Widget
-        return const Center(
-          child: Text(
-              "No Layout Found\nPlease create a layout first by running the app on a native machine [Windows, Linux, MacOS] in debug mode"),
-        );
+        fluttFolio.isEditingMode = true;
+        return Center(
+            child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Icon(Icons.error, size: 50),
+            const Text(
+                "No Layout Found, you can create one by clicking the button below 👇"),
+            const Text(
+                "and save the layout as layout.json in the assets folder of your forked repository"),
+            const SizedBox(height: 20),
+            ElevatedButton(
+                onPressed: () {
+                  widgetSelectorPush();
+                },
+                child: const Icon(Icons.add)),
+          ],
+        ));
       }
     }
 
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
-      floatingActionButton: kDebugMode
+      floatingActionButton: fluttFolio.isEditingMode
           ? FloatingActionButton(
               heroTag: "add_widget",
               onPressed: () {
@@ -45,19 +59,15 @@ class IndexView extends StatelessWidget {
               },
               child: const Icon(Icons.settings))
           : null,
-      body: kDebugMode
-          ? const EditorView()
-          : FutureBuilder<Widget>(
-              future: buildIndex(),
-              builder: (BuildContext context, AsyncSnapshot<Widget> snapshot) {
-                if (snapshot.hasError) {
-                  return Text(snapshot.error.toString());
-                }
-                return snapshot.hasData
-                    ? snapshot.data!
-                    : const Text("Loading...");
-              },
-            ),
+      body: FutureBuilder<Widget>(
+        future: buildIndex(),
+        builder: (BuildContext context, AsyncSnapshot<Widget> snapshot) {
+          if (snapshot.hasError) {
+            return Text(snapshot.error.toString());
+          }
+          return snapshot.hasData ? snapshot.data! : const Text("Loading...");
+        },
+      ),
     );
   }
 }

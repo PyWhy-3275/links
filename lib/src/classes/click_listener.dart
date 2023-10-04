@@ -13,7 +13,6 @@ class DefaultClickListener implements ClickListener {
 }
 
 widgetSelectorPush() {
-  // the url is the url of the widget selector
   navigatorKey.currentState?.push(
       MaterialPageRoute(builder: (context) => const SelectableWidgetsView()));
 }

@@ -55,7 +55,7 @@ class SelectableWidgetsView extends StatelessWidget {
                       ],
                     ),
                   ),
-                ),
+                )
               ],
             )));
   }

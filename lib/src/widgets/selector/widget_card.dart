@@ -19,8 +19,7 @@ class WidgetCard extends StatelessWidget {
       elevation: 10,
       shadowColor: Colors.black,
       color: Theme.of(context).primaryColor,
-      child: Expanded(
-          child: SizedBox(
+      child: SizedBox(
         width: 400,
         child: Padding(
           padding: const EdgeInsets.all(20.0),
@@ -53,8 +52,7 @@ class WidgetCard extends StatelessWidget {
                 alignment: Alignment.centerRight,
                 child: ElevatedButton(
                   onPressed: () {
-                    // TODO: pop with the json widget string
-                    Navigator.of(context).pop(jsonWidget);
+                    Navigator.pop(context, "jsonWidget");
                   },
                   style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(Colors.green)),
@@ -64,7 +62,7 @@ class WidgetCard extends StatelessWidget {
             ],
           ),
         ),
-      )),
+      ),
     );
   }
 }

@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:dynamic_widget/dynamic_widget/basic/dynamic_widget_json_exportor.dart';
 import 'package:flutter/material.dart';
 
@@ -13,16 +11,10 @@ class WidgetFactory extends StatefulWidget {
 class WidgetFactoryState extends State<WidgetFactory> {
   GlobalKey key = GlobalKey();
 
-  String formatJson(Map<String, dynamic> jsonMap) {
-    JsonEncoder encoder = const JsonEncoder.withIndent('  ');
-    String prettyJsonString = encoder.convert(jsonMap);
-    return prettyJsonString;
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           var exportor = key.currentWidget as DynamicWidgetJsonExportor;
@@ -32,6 +24,7 @@ class WidgetFactoryState extends State<WidgetFactory> {
               content: Text("json string was exported to editor page.")));
           print(exportJsonString);
         },
+        heroTag: "add_widget",
         child: const Icon(Icons.save),
       ),
       appBar: AppBar(
@@ -50,8 +43,7 @@ class WidgetFactoryState extends State<WidgetFactory> {
                 //
                 //
                 //
-                child: // create DropCapText
-                    Icon(Icons.window_sharp),
+                child: const Icon(Icons.window_sharp),
                 //
                 //
                 //

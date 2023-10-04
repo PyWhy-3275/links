@@ -35,6 +35,7 @@ class IndexView extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
       floatingActionButton: kDebugMode
           ? FloatingActionButton(
+              heroTag: "add_widget",
               onPressed: () {
                 // here I will let the user change some settings that i cant
                 // implement in the widget editor, like the background color
@@ -42,8 +43,7 @@ class IndexView extends StatelessWidget {
 
                 // I think you know by now what i mean by this 😉
               },
-              child: const Icon(Icons.settings),
-            )
+              child: const Icon(Icons.settings))
           : null,
       body: kDebugMode
           ? const EditorView()

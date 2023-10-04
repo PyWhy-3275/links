@@ -3,14 +3,14 @@ import 'dart:convert';
 import 'package:dynamic_widget/dynamic_widget/basic/dynamic_widget_json_exportor.dart';
 import 'package:flutter/material.dart';
 
-class JSONExporter extends StatefulWidget {
-  const JSONExporter({super.key});
+class WidgetFactory extends StatefulWidget {
+  const WidgetFactory({super.key});
 
   @override
-  JSONExporterState createState() => JSONExporterState();
+  WidgetFactoryState createState() => WidgetFactoryState();
 }
 
-class JSONExporterState extends State<JSONExporter> {
+class WidgetFactoryState extends State<WidgetFactory> {
   GlobalKey key = GlobalKey();
 
   String formatJson(Map<String, dynamic> jsonMap) {
@@ -51,7 +51,7 @@ class JSONExporterState extends State<JSONExporter> {
                 //
                 //
                 child: // create DropCapText
-                    Text("Hello there"),
+                    Icon(Icons.window_sharp),
                 //
                 //
                 //

@@ -1,8 +1,12 @@
 // this list houses the selectable widgets in the widget selector view.
-final List<Map<String, dynamic>> selectableWidgets = <Map<String, dynamic>>[
+import 'package:flutter/material.dart';
+
+const double iconSize = 60;
+const List<Map<String, dynamic>> selectableWidgets = <Map<String, dynamic>>[
   {
     "name": "Container",
     "description": "A simple container widget",
+    "icon": Icon(Icons.crop_outlined, size: iconSize),
     "jsonWidget": {
       "type": "Container",
       "alignment": null,
@@ -16,6 +20,7 @@ final List<Map<String, dynamic>> selectableWidgets = <Map<String, dynamic>>[
   {
     "name": "TextWidget",
     "description": "A Text Widget that displays text.",
+    "icon": Icon(Icons.text_fields, size: iconSize),
     "jsonWidget": {
       "type": "Text",
       "data": "Hello world",
@@ -33,6 +38,7 @@ final List<Map<String, dynamic>> selectableWidgets = <Map<String, dynamic>>[
     "name": "ElevatedButton",
     "description":
         "A button with a filled background, thats elevated from the background.",
+    "icon": Icon(Icons.arrow_forward, size: iconSize),
     "jsonWidget": {
       "type": "ElevatedButton",
       "foregroundColor": null,
@@ -48,6 +54,7 @@ final List<Map<String, dynamic>> selectableWidgets = <Map<String, dynamic>>[
   {
     "name": "TextButton",
     "description": "A button with text and transparent background.",
+    "icon": Icon(Icons.text_fields, size: iconSize),
     "jsonWidget": {
       "type": "TextButton",
       "foregroundColor": null,
@@ -74,6 +81,7 @@ final List<Map<String, dynamic>> selectableWidgets = <Map<String, dynamic>>[
   {
     "name": "Row",
     "description": "A row of widgets",
+    "icon": Icon(Icons.table_rows_rounded, size: iconSize),
     "jsonWidget": {
       "type": "Row",
       "crossAxisAlignment": "center",
@@ -88,6 +96,7 @@ final List<Map<String, dynamic>> selectableWidgets = <Map<String, dynamic>>[
   {
     "name": "Column",
     "description": "A column of widgets",
+    "icon": Icon(Icons.view_column_rounded, size: iconSize),
     "jsonWidget": {
       "type": "Column",
       "crossAxisAlignment": "center",
@@ -102,6 +111,7 @@ final List<Map<String, dynamic>> selectableWidgets = <Map<String, dynamic>>[
   {
     "name": "NetworkImage",
     "description": "A network image",
+    "icon": Icon(Icons.image, size: iconSize),
     "jsonWidget": {
       "type": "NetworkImage",
       "src":
@@ -124,6 +134,7 @@ final List<Map<String, dynamic>> selectableWidgets = <Map<String, dynamic>>[
   {
     "name": "AssetImage",
     "description": "A Image from the assets folder.",
+    "icon": Icon(Icons.image, size: iconSize),
     "jsonWidget": {
       "type": "AssetImage",
       "name": "assets/images/flutter_logo.png",
@@ -145,6 +156,7 @@ final List<Map<String, dynamic>> selectableWidgets = <Map<String, dynamic>>[
   {
     "name": "Placeholder",
     "description": "A placeholder Widget.",
+    "icon": Icon(Icons.image, size: iconSize),
     "jsonWidget": {
       "type": "Placeholder",
       "color": "ff455a64",
@@ -157,6 +169,7 @@ final List<Map<String, dynamic>> selectableWidgets = <Map<String, dynamic>>[
     "name": "PageView",
     "description":
         "Creates a scrollable list that works page by page from an explicit [List] of widgets.",
+    "icon": Icon(Icons.list, size: iconSize),
     "jsonWidget": {
       "type": "Expanded",
       "flex": 1,
@@ -172,6 +185,7 @@ final List<Map<String, dynamic>> selectableWidgets = <Map<String, dynamic>>[
   {
     "name": "Expanded",
     "description": "Expands the child widget.",
+    "icon": Icon(Icons.expand, size: iconSize),
     "jsonWidget": {
       "type": "Expanded",
       "flex": 1,
@@ -181,6 +195,7 @@ final List<Map<String, dynamic>> selectableWidgets = <Map<String, dynamic>>[
   {
     "name": "Padding",
     "description": "Add padding to the child widget.",
+    "icon": Icon(Icons.padding, size: iconSize),
     "jsonWidget": {
       "type": "Padding",
       "padding": "10.0,10.0,10.0,10.0",
@@ -190,6 +205,7 @@ final List<Map<String, dynamic>> selectableWidgets = <Map<String, dynamic>>[
   {
     "name": "Center",
     "description": "Centers the child widget.",
+    "icon": Icon(Icons.center_focus_strong, size: iconSize),
     "jsonWidget": {
       "type": "Center",
       "widthFactor": null,
@@ -200,6 +216,7 @@ final List<Map<String, dynamic>> selectableWidgets = <Map<String, dynamic>>[
   {
     "name": "Align",
     "description": "Align the child widget",
+    "icon": Icon(Icons.align_horizontal_center, size: iconSize),
     "jsonWidget": {
       "type": "Align",
       "alignment": "center",
@@ -211,6 +228,7 @@ final List<Map<String, dynamic>> selectableWidgets = <Map<String, dynamic>>[
   {
     "name": "AspectRatio",
     "description": "Creates a widget with a specific aspect ratio.",
+    "icon": Icon(Icons.aspect_ratio, size: iconSize),
     "jsonWidget": {
       "type": "AspectRatio",
       "aspectRatio": 1.0,
@@ -221,6 +239,7 @@ final List<Map<String, dynamic>> selectableWidgets = <Map<String, dynamic>>[
     "name": "FittedBox",
     "description":
         "Creates a widget that scales and positions its child within itself according to [fit].",
+    "icon": Icon(Icons.fullscreen, size: iconSize),
     "jsonWidget": {
       "type": "FittedBox",
       "alignment": "center",
@@ -232,6 +251,7 @@ final List<Map<String, dynamic>> selectableWidgets = <Map<String, dynamic>>[
     "name": "Baseline",
     "description":
         "Creates a widget that positions its child according to the child's baseline.",
+    "icon": Icon(Icons.format_line_spacing, size: iconSize),
     "jsonWidget": {
       "type": "Baseline",
       "baseline": 50.0,
@@ -243,6 +263,7 @@ final List<Map<String, dynamic>> selectableWidgets = <Map<String, dynamic>>[
     "name": "Stack",
     "description":
         "Creates a stack layout widget, so you can position one widget above another for example using the positioned widget.",
+    "icon": Icon(Icons.add_to_photos_rounded, size: iconSize),
     "jsonWidget": {
       "type": "Stack",
       "alignment": "topStart",
@@ -256,6 +277,7 @@ final List<Map<String, dynamic>> selectableWidgets = <Map<String, dynamic>>[
     "name": "Positioned",
     "description":
         "Creates a widget that controls where a child of a [Stack] is positioned.",
+    "icon": Icon(Icons.photo_size_select_small_rounded, size: iconSize),
     "jsonWidget": {
       "type": "Positioned",
       "top": null,
@@ -268,14 +290,9 @@ final List<Map<String, dynamic>> selectableWidgets = <Map<String, dynamic>>[
     }
   },
   {
-    "name": "IndexedStack",
-    "description":
-        "A [Stack] that shows a single child from a list of children. The displayed child is the one with the given [index]. The stack is always as big as the largest child.",
-    "jsonWidget": null
-  },
-  {
     "name": "SizedBox",
     "description": "A Box with the size you define",
+    "icon": Icon(Icons.crop_square, size: iconSize),
     "jsonWidget": {
       "type": "SizedBox",
       "width": null,
@@ -286,6 +303,7 @@ final List<Map<String, dynamic>> selectableWidgets = <Map<String, dynamic>>[
   {
     "name": "Opacity",
     "description": "Set the Opacity of the child widget",
+    "icon": Icon(Icons.opacity, size: iconSize),
     "jsonWidget": {
       "type": "Opacity",
       "opacity": 0.5,
@@ -296,6 +314,7 @@ final List<Map<String, dynamic>> selectableWidgets = <Map<String, dynamic>>[
   {
     "name": "Wrap",
     "description": "Wrap widgets dynamically.",
+    "icon": Icon(Icons.window_sharp, size: iconSize),
     "jsonWidget": {
       "type": "Wrap",
       "direction": "horizontal",
@@ -310,23 +329,9 @@ final List<Map<String, dynamic>> selectableWidgets = <Map<String, dynamic>>[
     }
   },
   {
-    "name": "SafeArea",
-    "description":
-        "A widget that insets its child by sufficient padding to avoid intrusions by the operating system.",
-    "jsonWidget": {
-      "type": "SafeArea",
-      "left": true,
-      "right": true,
-      "top": true,
-      "bottom": true,
-      "minimum": "0.0,0.0,0.0,0.0",
-      "maintainBottomViewPadding": false,
-      "child": null
-    }
-  },
-  {
     "name": "ListTile",
     "description": "A classic List Tile Widget.",
+    "icon": Icon(Icons.list_alt_rounded, size: iconSize),
     "jsonWidget": {
       "type": "ListTile",
       "isThreeLine": false,
@@ -343,6 +348,7 @@ final List<Map<String, dynamic>> selectableWidgets = <Map<String, dynamic>>[
   {
     "name": "SelectableText",
     "description": "Text you can select using your cursor.",
+    "icon": Icon(Icons.text_fields, size: iconSize),
     "jsonWidget": {
       "type": "SelectableText",
       "data": "Hello World",
@@ -355,6 +361,7 @@ final List<Map<String, dynamic>> selectableWidgets = <Map<String, dynamic>>[
   {
     "name": "Icon",
     "description": " Creates a Icon widget",
+    "icon": Icon(Icons.emoji_symbols, size: iconSize),
     "jsonWidget": {
       "type": "Icon",
       "data": "android",
@@ -367,6 +374,7 @@ final List<Map<String, dynamic>> selectableWidgets = <Map<String, dynamic>>[
   {
     "name": "AppBar",
     "description": "Create a app bar.",
+    "icon": Icon(Icons.app_settings_alt_rounded, size: iconSize),
     "jsonWidget": {
       "type": "AppBar",
       "title": null,
@@ -380,6 +388,7 @@ final List<Map<String, dynamic>> selectableWidgets = <Map<String, dynamic>>[
     "name": "LimitedBox",
     "description":
         "Creates a box that limits its size only when it's unconstrained.",
+    "icon": Icon(Icons.crop_7_5, size: iconSize),
     "jsonWidget": {
       "type": "LimitedBox",
       "maxWidth": 9999999999.0,
@@ -390,6 +399,7 @@ final List<Map<String, dynamic>> selectableWidgets = <Map<String, dynamic>>[
   {
     "name": "Offstage",
     "description": "Creates a widget that visually hides its child.",
+    "icon": Icon(Icons.visibility_off, size: iconSize),
     "jsonWidget": {
       "type": "Offstage",
       "offstage": true,
@@ -399,6 +409,7 @@ final List<Map<String, dynamic>> selectableWidgets = <Map<String, dynamic>>[
   {
     "name": "OverflowBox",
     "description": "Creates a widget that lets its child overflow itself.",
+    "icon": Icon(Icons.crop_7_5, size: iconSize),
     "jsonWidget": {
       "type": "OverflowBox",
       "alignment": "center",
@@ -412,6 +423,7 @@ final List<Map<String, dynamic>> selectableWidgets = <Map<String, dynamic>>[
   {
     "name": "Divider",
     "description": "Creates a Material style Divider",
+    "icon": Icon(Icons.horizontal_rule_rounded, size: iconSize),
     "jsonWidget": {
       "type": "Divider",
       "height": null,
@@ -424,11 +436,13 @@ final List<Map<String, dynamic>> selectableWidgets = <Map<String, dynamic>>[
   {
     "name": "RotatedBox",
     "description": "A widget that rotates its child.",
+    "icon": Icon(Icons.rotate_right, size: iconSize),
     "jsonWidget": {"type": "RotatedBox", "quarterTurns": 1, "child": null}
   },
   {
     "name": "SingleChildScrollView",
     "description": "Creates a box in which a single widget can be scrolled.",
+    "icon": Icon(Icons.swipe_vertical_outlined, size: iconSize),
     "jsonWidget": {
       "type": "SingleChildScrollView",
       "scrollDirection": "vertical",

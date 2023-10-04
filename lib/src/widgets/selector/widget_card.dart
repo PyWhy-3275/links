@@ -3,34 +3,43 @@ import 'package:flutter/material.dart';
 class WidgetCard extends StatelessWidget {
   final String name;
   final String description;
+  final dynamic icon;
+  final Map<String, dynamic> jsonWidget;
 
-  const WidgetCard({super.key, required this.name, required this.description});
+  const WidgetCard(
+      {super.key,
+      required this.name,
+      required this.description,
+      required this.icon,
+      required this.jsonWidget});
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 50,
+      elevation: 10,
       shadowColor: Colors.black,
       color: Theme.of(context).primaryColor,
-      child: SizedBox(
+      child: Expanded(
+          child: SizedBox(
         width: 400,
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-              const SizedBox(
-                height: 10,
-              ),
-              Text(
-                name,
-                style: const TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.w500,
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  name,
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
               const SizedBox(
-                height: 10,
+                height: 5,
               ),
+              icon,
               Text(
                 description,
                 style: const TextStyle(
@@ -40,21 +49,22 @@ class WidgetCard extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              SizedBox(
-                width: 100,
+              Align(
+                alignment: Alignment.centerRight,
                 child: ElevatedButton(
                   onPressed: () {
-                    // TODO: pop with the json string
+                    // TODO: pop with the json widget string
+                    Navigator.of(context).pop(jsonWidget);
                   },
                   style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(Colors.green)),
-                  child: const Icon(Icons.check),
+                  child: const Icon(Icons.add),
                 ),
               )
             ],
           ),
         ),
-      ),
+      )),
     );
   }
 }

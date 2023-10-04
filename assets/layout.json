@@ -26,7 +26,28 @@
       "color": null,
       "margin": null,
       "constraints": null,
-      "child": null
+      "child": {
+        "type": "TextButton",
+        "foregroundColor": null,
+        "backgroundColor": null,
+        "overlayColor": null,
+        "shadowColor": null,
+        "elevation": null,
+        "padding": null,
+        "textStyle": null,
+        "child": {
+          "type": "Text",
+          "data": "Hello World",
+          "textAlign": "start",
+          "overflow": null,
+          "maxLines": null,
+          "semanticsLabel": null,
+          "softWrap": null,
+          "textDirection": "ltr",
+          "style": null,
+          "textScaleFactor": null
+        }
+      }
     }
   ]
 }

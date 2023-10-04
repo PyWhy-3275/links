@@ -46,7 +46,7 @@ class FluttFolio with ChangeNotifier {
 }
 ''';
 
-  _fillNullChildWithWidgetSelector(String jsonString) async {
+  _fillNullChildWithWidgetSelector(String jsonString) {
     Map<String, dynamic> jsonMap = json.decode(jsonString);
     // add the widget selector to all null children
     jsonMap = json.decode(_addWidgetToAllNullChild(jsonEncode(jsonMap)));

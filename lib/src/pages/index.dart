@@ -1,15 +1,14 @@
+import 'dart:convert';
+
 import 'package:dynamic_widget/dynamic_widget.dart';
 import 'package:flutt_folio/src/classes/click_listener.dart';
 import 'package:flutt_folio/src/classes/flutt_folio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-/// Displays a list of SampleItems.
 class IndexView extends StatelessWidget {
-  const IndexView({
-    super.key,
-  });
-
+  const IndexView({super.key});
   static const routeName = '/';
 
   @override
@@ -17,37 +16,13 @@ class IndexView extends StatelessWidget {
     final fluttFolio = Provider.of<FluttFolio>(context);
 
     Future<Widget>? buildIndex() async {
-      try {
-        String layoutString = await DefaultAssetBundle.of(context)
-            .loadString("assets/layout.json");
-
-        return DynamicWidgetBuilder.build(
-            layoutString, context, DefaultClickListener())!;
-      } catch (e) {
-        fluttFolio.isEditingMode = true;
-        return Center(
-            child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Icon(Icons.error, size: 50),
-            const Text(
-                "No Layout Found, you can create one by clicking the button below 👇"),
-            const Text(
-                "and save the layout as layout.json in the assets folder of your forked repository"),
-            const SizedBox(height: 20),
-            ElevatedButton(
-                onPressed: () {
-                  widgetSelectorPush();
-                },
-                child: const Icon(Icons.add)),
-          ],
-        ));
-      }
+      return DynamicWidgetBuilder.build(
+          jsonEncode(fluttFolio.jsonLayout), context, DefaultClickListener())!;
     }
 
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
-      floatingActionButton: fluttFolio.isEditingMode
+      floatingActionButton: fluttFolio.isEditingMode || kDebugMode
           ? FloatingActionButton(
               heroTag: "add_widget",
               onPressed: () {
@@ -63,9 +38,28 @@ class IndexView extends StatelessWidget {
         future: buildIndex(),
         builder: (BuildContext context, AsyncSnapshot<Widget> snapshot) {
           if (snapshot.hasError) {
-            return Text(snapshot.error.toString());
+            return Center(
+                child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Icon(Icons.error, size: 50),
+                const Text(
+                    "No Layout Found, you can create one by clicking the button below 👇"),
+                const Text(
+                    "and save the layout as layout.json in the assets folder of your forked repository"),
+                const SizedBox(height: 20),
+                ElevatedButton(
+                    onPressed: () {
+                      widgetSelectorPush();
+                    },
+                    child: const Icon(Icons.add)),
+              ],
+            ));
           }
-          return snapshot.hasData ? snapshot.data! : const Text("Loading...");
+          if (snapshot.hasData) {
+            return snapshot.data!;
+          }
+          return const Center(child: CircularProgressIndicator());
         },
       ),
     );

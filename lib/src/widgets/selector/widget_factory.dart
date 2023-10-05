@@ -22,6 +22,7 @@ class WidgetFactoryState extends State<WidgetFactory> {
 
           ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
               content: Text("json string was exported to editor page.")));
+          //TODO: show json string export widget
           print(exportJsonString);
         },
         heroTag: "add_widget",

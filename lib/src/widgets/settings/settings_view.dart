@@ -11,7 +11,7 @@ class SettingsView extends StatelessWidget {
             onPressed: () {
               Navigator.of(context).pop(true);
             },
-            child: Icon(Icons.close)),
+            child: const Icon(Icons.close)),
       ),
     );
   }
@@ -20,7 +20,7 @@ class SettingsView extends StatelessWidget {
 Future<bool?> showSettingsView(BuildContext context) async {
   return await showGeneralDialog(
     context: context,
-    barrierDismissible: true,
+    barrierDismissible: false,
     barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,
     barrierColor: Colors.black45,
     transitionDuration: const Duration(milliseconds: 400),

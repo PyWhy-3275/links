@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:dynamic_widget/dynamic_widget.dart';
 import 'package:flutt_folio/src/classes/click_listener.dart';
 import 'package:flutt_folio/src/classes/flutt_folio.dart';
+import 'package:flutt_folio/src/widgets/json_exporter_view.dart';
+import 'package:flutt_folio/src/widgets/selector/selectable_widgets_view.dart';
 import 'package:flutt_folio/src/widgets/settings/settings_view.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -24,12 +26,26 @@ class IndexView extends StatelessWidget {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
       floatingActionButton: fluttFolio.isEditingMode || kDebugMode
-          ? FloatingActionButton(
-              heroTag: "settings",
-              onPressed: () {
-                showSettingsView(context);
-              },
-              child: const Icon(Icons.settings))
+          ? Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                FloatingActionButton(
+                  heroTag: "settings",
+                  onPressed: () {
+                    showSettingsView(context);
+                  },
+                  child: const Icon(Icons.settings),
+                ),
+                const SizedBox(width: 10),
+                FloatingActionButton(
+                  heroTag: "export",
+                  onPressed: () {
+                    showJsonExporter(context);
+                  },
+                  child: const Icon(Icons.save),
+                ),
+              ],
+            )
           : null,
       body: FutureBuilder<Widget>(
         future: buildIndex(),
@@ -47,14 +63,17 @@ class IndexView extends StatelessWidget {
                 const SizedBox(height: 20),
                 ElevatedButton(
                     onPressed: () {
-                      widgetSelectorPush();
+                      showSelectableWidgetsView(context);
                     },
                     child: const Icon(Icons.add)),
               ],
             ));
           }
           if (snapshot.hasData) {
-            return snapshot.data!;
+            return SizedBox(
+              width: double.infinity,
+              child: snapshot.data!,
+            );
           }
           return const Center(child: CircularProgressIndicator());
         },

@@ -1,6 +1,6 @@
 import 'package:flutt_folio/src/widgets/selector/selectable_widgets.dart';
 import 'package:flutt_folio/src/widgets/selector/widget_card.dart';
-import 'package:flutt_folio/src/widgets/selector/widget_factory.dart';
+import 'package:flutt_folio/src/widgets/selector/widget_factory_view.dart';
 import 'package:flutter/material.dart';
 
 class SelectableWidgetsView extends StatelessWidget {
@@ -13,8 +13,7 @@ class SelectableWidgetsView extends StatelessWidget {
         floatingActionButton: FloatingActionButton.extended(
             heroTag: "factory",
             onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const WidgetFactory()));
+              showWidgetFactoryView(context);
             },
             label: const Text("Factory"),
             icon: const Icon(Icons.add)),
@@ -59,4 +58,18 @@ class SelectableWidgetsView extends StatelessWidget {
               ],
             )));
   }
+}
+
+Future showSelectableWidgetsView(BuildContext context) async {
+  return await showGeneralDialog(
+    context: context,
+    barrierDismissible: false,
+    barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,
+    barrierColor: Colors.black45,
+    transitionDuration: const Duration(milliseconds: 400),
+    pageBuilder: (BuildContext buildContext, Animation animation,
+        Animation secondaryAnimation) {
+      return const SelectableWidgetsView();
+    },
+  );
 }

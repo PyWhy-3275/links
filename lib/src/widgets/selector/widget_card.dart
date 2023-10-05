@@ -52,7 +52,7 @@ class WidgetCard extends StatelessWidget {
                 alignment: Alignment.centerRight,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.pop(context, "jsonWidget");
+                    Navigator.pop(context, jsonWidget);
                   },
                   style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(Colors.green)),

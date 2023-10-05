@@ -34,27 +34,49 @@ class WidgetFactoryState extends State<WidgetFactory> {
       body: Builder(
         builder: (context) => SizedBox(
           width: double.infinity,
-          child: Column(
-            children: [
-              DynamicWidgetJsonExportor(
-                key: key,
-                // everything from this point will be exported as json
-                //
-                //
-                //
-                //
-                //
-                child: const Icon(Icons.window_sharp),
-                //
-                //
-                //
-                //
-                //
-              ),
-            ],
+          child: DynamicWidgetJsonExportor(
+            key: key,
+            // everything from this point will be exported as json
+            //
+            //
+            //
+            //
+            //
+
+            child: const Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.accessibility,
+                    size: 50,
+                  ),
+                  Text("Would you look at that!"),
+                  Text("Its all coming together hehe !"),
+                ]),
+
+            //
+            //
+            //
+            //
+            //
           ),
         ),
       ),
     );
   }
+}
+
+Future showWidgetFactoryView(BuildContext context) async {
+  return await showGeneralDialog(
+    context: context,
+    barrierDismissible: false,
+    barrierLabel: MaterialLocalizations.of(context).modalBarrierDismissLabel,
+    barrierColor: Colors.black45,
+    transitionDuration: const Duration(milliseconds: 400),
+    pageBuilder: (BuildContext buildContext, Animation animation,
+        Animation secondaryAnimation) {
+      return const WidgetFactory();
+    },
+  );
 }

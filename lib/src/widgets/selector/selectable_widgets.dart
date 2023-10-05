@@ -170,17 +170,7 @@ const List<Map<String, dynamic>> selectableWidgets = <Map<String, dynamic>>[
     "description":
         "Creates a scrollable list that works page by page from an explicit [List] of widgets.",
     "icon": Icon(Icons.list, size: iconSize),
-    "jsonWidget": {
-      "type": "Expanded",
-      "flex": 1,
-      "child": {
-        "type": "PageView",
-        "scrollDirection": "horizontal",
-        "reverse": false,
-        "pageSnapping": true,
-        "children": []
-      }
-    }
+    "jsonWidget": {"type": "Expanded", "flex": 1, "child": null}
   },
   {
     "name": "Expanded",

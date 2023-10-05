@@ -25,7 +25,7 @@ class WidgetFactoryState extends State<WidgetFactory> {
           //TODO: show json string export widget
           print(exportJsonString);
         },
-        heroTag: "add_widget",
+        heroTag: "factory",
         child: const Icon(Icons.save),
       ),
       appBar: AppBar(

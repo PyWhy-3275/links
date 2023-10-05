@@ -11,7 +11,7 @@ class SelectableWidgetsView extends StatelessWidget {
     return Scaffold(
         floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
         floatingActionButton: FloatingActionButton.extended(
-            heroTag: "add_widget",
+            heroTag: "factory",
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) => const WidgetFactory()));

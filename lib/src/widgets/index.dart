@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:dynamic_widget/dynamic_widget.dart';
 import 'package:flutt_folio/src/classes/click_listener.dart';
 import 'package:flutt_folio/src/classes/flutt_folio.dart';
+import 'package:flutt_folio/src/widgets/settings/settings_view.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -24,13 +25,9 @@ class IndexView extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
       floatingActionButton: fluttFolio.isEditingMode || kDebugMode
           ? FloatingActionButton(
-              heroTag: "add_widget",
+              heroTag: "settings",
               onPressed: () {
-                // here I will let the user change some settings that i cant
-                // implement in the widget editor, like the background color
-                // global text color/styles, Favicon or the page title.
-
-                // I think you know by now what i mean by this 😉
+                showSettingsView(context);
               },
               child: const Icon(Icons.settings))
           : null,
